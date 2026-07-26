@@ -1,4 +1,4 @@
-# WEP Cracking Lab
+# WEP Cracking
 
 ### Objective
 This task demonstrates the weaknesses of WEP wireless security in an authorised home lab environment. This project documents the setup, packet capture process, key recovery, essential findings, and lessons learned about why WEP is considered insecure.
