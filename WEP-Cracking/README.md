@@ -20,4 +20,11 @@ This task demonstrates the weaknesses of WEP wireless security in an authorised 
  - VMware Workstation Pro – Used to run and manage the virtual machines.
  - Kali Linux VM – Used as the wireless security testing machine.
  - Windows 10 VM – Used as the client device connected to the test wireless network.
+ - Realtek USB Wireless Adapter – Used for monitor mode, packet capture, and packet injection.
+ - TP-Link Router – Configured as the authorised WEP test network.
+ - Aircrack-ng Suite – Used to monitor, capture, generate, and analyse wireless traffic.
+     - airmon-ng – Enabled monitor mode on the wireless adapter.
+     - airodump-ng – Captured wireless packets and IVs.
+     - aireplay-ng – Generated traffic and performed packet injection.
+     - aircrack-ng – Analysed the captured IVs and recovered the WEP key.
   
