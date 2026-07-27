@@ -14,4 +14,10 @@ This task demonstrates the weaknesses of WEP wireless security in an authorised 
 - Recovering a WEP key from captured packets using aircrack-ng
 - Documenting the lab setup, commands, results, and key findings
 - Understanding why WEP is obsolete and should be replaced with WPA2 or WPA3
+
+### Tools and Environment
+
+ - VMware Workstation Pro – Used to run and manage the virtual machines.
+ - Kali Linux VM – Used as the wireless security testing machine.
+ - Windows 10 VM – Used as the client device connected to the test wireless network.
   
