@@ -26,5 +26,16 @@ This task demonstrates the weaknesses of WEP wireless security in an authorised 
      - airmon-ng – Enabled monitor mode on the wireless adapter.
      - airodump-ng – Captured wireless packets and IVs.
      - aireplay-ng – Generated traffic and performed packet injection.
-     - aircrack-ng – Analysed the captured IVs and recovered the WEP key.
+     - aircrack-ng – Analysed the captured IVs and recovered the WEP
+       
+### Key Learnings
+- How to change the MAC address of my external Wifi Adapter:
+   - Commands used:
+      - ifconfig wlan0 down
+      - ifconfig wlan0 hw ether 00:11:22:33:44
+      - ifconfig wlan0 up
+      - Ifconfig wlan0 hw ether 00:11:22:33:44:55
+      - (give the screenshot of the command utput here with the new MAC) 
+      - 
+
   
