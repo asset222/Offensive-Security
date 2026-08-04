@@ -32,10 +32,9 @@ This task demonstrates the weaknesses of WEP wireless security in an authorised 
 - How to change the MAC address of my external Wifi Adapter:
    - Commands used:
       - ifconfig wlan0 down
-      - ifconfig wlan0 hw ether 00:11:22:33:44
-      - ifconfig wlan0 up
-      - Ifconfig wlan0 hw ether 00:11:22:33:44:55
-      - (give the screenshot of the command utput here with the new MAC) 
-      - 
+      - ifconfig wlan0 hw ether 00:11:22:33:44:55
+      - <img width="580" height="203" alt="image" src="https://github.com/user-attachments/assets/8426a2d5-1474-407c-8d00-9c40b63ba684" />
+
+      - The MAC address of my enternal wireless adapter has been changed successfully. We can use this technique to perform bigger attacks moving forward.
 
   
