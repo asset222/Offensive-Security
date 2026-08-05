@@ -148,6 +148,24 @@ This task demonstrates the weaknesses of WEP wireless security in an authorised 
 
          - Resolution: More authorised test traffic was generated and packet capture continued until enough IVs were available for analysis.
 
+- ### Important Findings:
+   - PWR: higher the number, the better signal strength of the network: e.g. -38 is better than -50 
+	 - Encryption type = OPN means this network does not require any password to connect
+	 - 2.4GHz band usually uses channel 1-13 & 5GHz band uses channel 36-165
+   - WEP relies on an outdated encryption design.
+   - Its 24-bit Initialization Vector is too small.
+   - IV values eventually repeat when enough packets are transmitted.
+   - Repeated and weak IVs expose information about the shared key.
+   - The IV is transmitted in plaintext with every wireless packet.
+   - Increasing network activity can increase the rate at which IVs are collected.
+   - A long WEP password does not correct the underlying weaknesses of WEP.
+   - #### WEP should not be used to protect modern wireless networks.
+ 
+- ### Conclusion: 
+   - This project demonstrated how weaknesses in WEP encryption can allow a shared wireless key to be recovered from captured network traffic.
+   - The project confirms that WEP is fundamentally insecure and should be replaced with WPA2-AES or WPA3 on all modern wireless networks.
+ 
+
    
 
 
