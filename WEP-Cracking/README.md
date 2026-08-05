@@ -115,7 +115,7 @@ This task demonstrates the weaknesses of WEP wireless security in an authorised 
       - The HEX data = 70:61:73:73:77:6F:72:64:31:32, so, the WiFi Password would be = 70617373776F72643132
       - The ASCII data = testPassword!
    
-- ### Final result 
+- ### Final Result 
 | Test | Outcome |
 |---|---|
 | External adapter detected by Kali Linux | Successful |
@@ -126,6 +126,27 @@ This task demonstrates the weaknesses of WEP wireless security in an authorised 
 | Sufficient IVs collected | Successful |
 | WEP key recovered | Successful |
 | Recovered key verified | Successful |
+
+   - The experiment demonstrated that an adversary within wireless network range could potentially recover a WEP key after collecting enough network packets. No direct access to the router                  configuration or original password was required during the recovery process.
+
+- ### Challenges and Troubleshooting
+   - Wireless Adapter Connected to the Host Instead of Kali
+
+         - Problem: The external wireless adapter was detected by the Windows host but was not available inside Kali Linux.
+
+         - Resolution: The USB adapter was disconnected from the host and manually connected to the Kali Linux VM through VMware's removable-device settings. Disconnecting/Connecting the Synaptics icon in the VMware got the wireless connectivity back to the Kali VM.  
+
+   - VMware NAT Connectivity Issue
+
+         - Problem: Virtual machines using NAT networking temporarily lost internet connectivity.
+
+         - Resolution: The relevant VMware networking services on the Windows host were restarted, restoring NAT connectivity.
+
+   - Insufficient Initialization Vectors
+
+         - Problem: Aircrack-ng could not recover the key when only a small number of IVs had been collected.
+
+         - Resolution: More authorised test traffic was generated and packet capture continued until enough IVs were available for analysis.
 
    
 
