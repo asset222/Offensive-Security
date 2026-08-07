@@ -43,10 +43,27 @@ This task demonstrates the weaknesses of WEP wireless security in an authorised 
 - How to change the MAC address of my external Wifi Adapter:
    - Commands used:
       - ifconfig wlan0 down
-      - ifconfig wlan0 hw ether 00:11:22:33:44:55
-      - <img width="580" height="203" alt="image" src="https://github.com/user-attachments/assets/8426a2d5-1474-407c-8d00-9c40b63ba684" />
+      - ifconfig wlean0 hw ethr 00:11:22:33:44:55
+   <img width="580" height="203" alt="image" src="https://github.com/user-attachments/assets/8426a2d5-1474-407c-8d00-9c40b63ba684" />
 
-      - The MAC address of my enternal wireless adapter has been changed successfully. This technique may be useful in more advanced wireless security assessments.
+
+   
+   - The MAC address of my enternal wireless adapter has been changed successfully. This technique may be useful in more advanced wireless security assessments.
+- NAT on the VM not functioning properly:
+  	- I faced an issue where the NAT network option did not function properly, causing my VMs to lose internet connectivity. I did the following:
+  	    - Checked the VM Network Adapter settings and confirmed that NAT was selected correctly.
+	    - Restarted NetworkManager in Kali Linux:
+	    - systemctl restart NetworkManager
+	    - Disabled and re-enabled the VM's Network Adapter from the VMware settings.
+  	- I found that some VMware connectivity issues were caused by VMware services on the Windows host machine not running correctly. Checking these services in Windows Services 		     		(_services.msc_) helped resolve the issues.
+		- VMware NAT Service – Required for VMs using NAT networking to access the host network/internet. Restarting this service resolved my NAT connectivity issue.
+		- VMware DHCP Service – Assigns IP addresses automatically to VMs using VMware virtual networks. If stopped, VMs may fail to obtain a valid IP address.
+		- VMware USB Arbitration Service – Handles USB device passthrough between the host and VMs. Restarting this service can help when a USB device, such as an external Wi-Fi adapter, 				is not detected or cannot be connected to the VM.
+   <img width="526" height="69" alt="image" src="https://github.com/user-attachments/assets/8c370874-0e8b-4e92-9b02-32f5b78b6005" />
+
+  	   
+	- Key Learning: When experiencing VMware networking or USB connectivity issues, checking and restarting the relevant VMware services on the host machine can be an important   		troubleshooting step.
+
     
 
 
