@@ -1,10 +1,10 @@
-# WEP Cracking Security Assessment — Technical Lab Notes
+# WEP Cracking — Technical_Lab_Notes
 
 ## Purpose
 
 This document contains the detailed technical notes, commands, observations, troubleshooting steps, and lessons learned during my WEP wireless security assessment.
 
-> **Authorisation Notice:** All wireless testing was performed against my own equipment in a controlled home lab environment.
+> **Authorization Notice:** All wireless testing was performed against my own equipment in a controlled home lab environment.
 
 ---
 
@@ -52,7 +52,7 @@ Used to:
 
 ### `aircrack-ng`
 
-Used to analyse captured WEP packets and attempt recovery of the shared WEP key.
+Used to analyze captured WEP packets and attempt recovery of the shared WEP key.
 
 ---
 
@@ -73,25 +73,27 @@ wlan0
 Disable the interface:
 
 ```bash
-sudo ifconfig wlan0 down
+ifconfig wlan0 down
 ```
 
 Stop processes that may interfere with monitor mode:
 
 ```bash
-sudo airmon-ng check kill
+airmon-ng check kill
 ```
 
 Configure monitor mode:
 
+ - <img width="463" height="84" alt="image" src="https://github.com/user-attachments/assets/732e8ac0-6b57-4c35-abc5-384e274513cd" />
+
 ```bash
-sudo iwconfig wlan0 mode monitor
+iwconfig wlan0 mode monitor
 ```
 
 Alternatively, monitor mode can be started using:
 
 ```bash
-sudo airmon-ng start wlan0
+airmon-ng start wlan0
 ```
 
 Verify the configuration:
@@ -105,23 +107,24 @@ The wireless interface should display:
 ```text
 Mode:Monitor
 ```
+  - <img width="516" height="95" alt="image" src="https://github.com/user-attachments/assets/cbae5319-ee3b-444e-943a-80f162efd57b" />
 
 > **Note:** Wireless adapters must support monitor mode. Not every Wi-Fi adapter provides this capability.
 
 ---
 
-# 4. Identify the Authorised WEP Network
+# 4. Identify the Authorized WEP Network
 
 To discover nearby 2.4 GHz wireless networks:
 
 ```bash
-sudo airodump-ng wlan0
+airodump-ng wlan0
 ```
 
 To scan supported wireless bands:
 
 ```bash
-sudo airodump-ng --band abg wlan0
+airodump-ng --band abg wlan0
 ```
 
 Scanning multiple bands can take longer because the adapter has to move between additional wireless channels.
@@ -320,7 +323,7 @@ No access to the router's administrative interface or prior knowledge of the wir
 
 ---
 
-# 10. Additional Linux Learning
+# 10. Additional Learning
 
 ## Changing the Wireless Adapter MAC Address
 
@@ -329,19 +332,19 @@ During the lab I also practised changing the MAC address assigned to the externa
 Disable the interface:
 
 ```bash
-sudo ifconfig wlan0 down
+ifconfig wlan0 down
 ```
 
 Assign the test MAC address:
 
 ```bash
-sudo ifconfig wlan0 hw ether 00:11:22:33:44:55
+ifconfig wlan0 hw ether 00:11:22:33:44:55
 ```
 
 Enable the interface again:
 
 ```bash
-sudo ifconfig wlan0 up
+ifconfig wlan0 up
 ```
 
 Verify:
@@ -349,8 +352,9 @@ Verify:
 ```bash
 ifconfig wlan0
 ```
+<img width="580" height="203" alt="image" src="https://github.com/user-attachments/assets/8426a2d5-1474-407c-8d00-9c40b63ba684" />
 
-This provided additional practical experience managing Linux network interfaces.
+The MAC address of my enternal wireless adapter has been changed successfully. This technique may be useful in more advanced wireless security assessments.
 
 ---
 
@@ -379,7 +383,7 @@ VM Settings
 I then restarted NetworkManager inside Kali Linux:
 
 ```bash
-sudo systemctl restart NetworkManager
+systemctl restart NetworkManager
 ```
 
 I also disabled and re-enabled the VMware virtual network adapter.
@@ -392,9 +396,7 @@ Open:
 services.msc
 ```
 
----
-
-## VMware NAT Service
+## VMware NAT & DHCP Service on host Windows OS:
 
 The **VMware NAT Service** provides NAT connectivity between VMware virtual machines and the host network.
 
@@ -402,37 +404,21 @@ During troubleshooting, I discovered that this service was not running correctly
 
 Restarting the service restored NAT connectivity.
 
-### Key Learning
-
-When NAT is configured correctly inside VMware but the VM still cannot reach the internet, troubleshooting should include both:
-
-```text
-Guest OS
-      ↓
-VM Network Adapter
-      ↓
-VMware Virtual Network
-      ↓
-VMware NAT Service
-      ↓
-Host Network
-      ↓
-Internet
-```
-
----
-
-## 12. VMware DHCP Service
-
-The **VMware DHCP Service** provides IP addresses to virtual machines connected to VMware-managed networks.
+The *VMware DHCP Service* provides IP addresses to virtual machines connected to VMware-managed networks.
 
 If this service stops working, a VM may fail to obtain a valid IP address.
 
 This service should therefore also be checked during VMware networking troubleshooting.
 
+  <img width="526" height="69" alt="image" src="https://github.com/user-attachments/assets/8c370874-0e8b-4e92-9b02-32f5b78b6005" />
+
+  ### Key Learning
+
+When experiencing VMware networking or USB connectivity issues, checking and restarting the relevant VMware services on the host machine can be an important troubleshooting step.
+
 ---
 
-## 13. USB Wi-Fi Adapter Not Available in Kali
+## 12. USB Wi-Fi Adapter Not Available in Kali
 
 ### Problem
 
@@ -482,7 +468,7 @@ Kali Linux VM
 
 ---
 
-## 14. Insufficient IV Collection
+## 13. Insufficient IV Collection
 
 ### Problem
 
@@ -502,7 +488,7 @@ The underlying issue is the protocol's encryption design and IV reuse.
 
 ---
 
-# 15. Important Technical Findings
+# 14. Important Technical Findings
 
 ## Signal Strength
 
@@ -536,7 +522,7 @@ indicates that the network is open and does not use wireless encryption.
 
 ---
 
-# 16. WEP Security Findings
+# 15. WEP Security Findings
 
 The lab demonstrated several weaknesses in WEP:
 
@@ -550,7 +536,7 @@ The lab demonstrated several weaknesses in WEP:
 
 ---
 
-# 17. Security Recommendation
+# 16. Security Recommendation
 
 WEP should not be used to secure modern wireless networks.
 
@@ -568,7 +554,7 @@ WPA3
 
 ---
 
-# 18. Lessons Learned
+# 17. Lessons Learned
 
 This project improved my practical understanding of:
 
