@@ -179,8 +179,8 @@ This task demonstrates the weaknesses of WEP wireless security in an authorised 
    - #### WEP should not be used to protect modern wireless networks.
  
 - ### Conclusion: 
-   - This project demonstrated how weaknesses in WEP encryption can allow a shared wireless key to be recovered from captured network traffic.
-   - The project confirms that WEP is fundamentally insecure and should be replaced with WPA2-AES or WPA3 on all modern wireless networks.
+   - This project demonstrated how weaknesses in WEP encryption can allow a shared wireless key to be recovered from captured packets.
+   - The project confirms that WEP is insecure and should be replaced with WPA2-AES or WPA3 on all modern wireless networks.
  
 
    
