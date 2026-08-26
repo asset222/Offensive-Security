@@ -1,10 +1,10 @@
-# WEP Wireless Security Assessment — Technical Lab Notes
+# WEP Cracking — Technical_Lab_Notes
 
 ## Purpose
 
 This document contains the detailed technical notes, commands, observations, troubleshooting steps, and lessons learned during my WEP wireless security assessment.
 
-> **Authorisation Notice:** All wireless testing was performed against my own equipment in a controlled home lab environment.
+> **Authorization Notice:** All wireless testing was performed against my own equipment in a controlled home lab environment.
 
 ---
 
@@ -73,25 +73,25 @@ wlan0
 Disable the interface:
 
 ```bash
-sudo ifconfig wlan0 down
+ifconfig wlan0 down
 ```
 
 Stop processes that may interfere with monitor mode:
 
 ```bash
-sudo airmon-ng check kill
+airmon-ng check kill
 ```
 
 Configure monitor mode:
 
 ```bash
-sudo iwconfig wlan0 mode monitor
+iwconfig wlan0 mode monitor
 ```
 
 Alternatively, monitor mode can be started using:
 
 ```bash
-sudo airmon-ng start wlan0
+airmon-ng start wlan0
 ```
 
 Verify the configuration:
@@ -320,7 +320,7 @@ No access to the router's administrative interface or prior knowledge of the wir
 
 ---
 
-# 10. Additional Linux Learning
+# 10. Additional Learning
 
 ## Changing the Wireless Adapter MAC Address
 
@@ -329,19 +329,19 @@ During the lab I also practised changing the MAC address assigned to the externa
 Disable the interface:
 
 ```bash
-sudo ifconfig wlan0 down
+ifconfig wlan0 down
 ```
 
 Assign the test MAC address:
 
 ```bash
-sudo ifconfig wlan0 hw ether 00:11:22:33:44:55
+ifconfig wlan0 hw ether 00:11:22:33:44:55
 ```
 
 Enable the interface again:
 
 ```bash
-sudo ifconfig wlan0 up
+ifconfig wlan0 up
 ```
 
 Verify:
@@ -349,8 +349,9 @@ Verify:
 ```bash
 ifconfig wlan0
 ```
+<img width="580" height="203" alt="image" src="https://github.com/user-attachments/assets/8426a2d5-1474-407c-8d00-9c40b63ba684" />
 
-This provided additional practical experience managing Linux network interfaces.
+The MAC address of my enternal wireless adapter has been changed successfully. This technique may be useful in more advanced wireless security assessments.
 
 ---
 
