@@ -93,7 +93,7 @@ The assessment followed the following workflow:
 
 Detailed commands and technical notes are available here:
 
-➡️ **[View Detailed Lab Notes](LAB_NOTES.md)**
+➡️ **[View Detailed Lab Notes Here](Technical_lab_notes.md)**
 
 ---
 
